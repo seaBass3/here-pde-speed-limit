@@ -21,7 +21,7 @@ if ($_GET['coords']) {
             $tileY = (int)(($coords['lat'] + 90) / $tileSize);
             $tileX = (int)(($coords['lng'] + 180) / $tileSize);
 
-            $ch = curl_init("https://pde.api.here.com/1/tile.json?layer=SPEED_LIMITS_FC" . (string)$functionClass . "&tilex=" . $tileX . "&tiley=" . $tileY . "&level=9&app_id={YOUR_APP_ID}&app_code={YOUR_APP_CODE}");
+            $ch = curl_init("https://pde.api.here.com/1/tile.json?layer=SPEED_LIMITS_FC" . (string)$functionClass . "&tilex=" . $tileX . "&tiley=" . $tileY . "&level=" . $level . "&app_id={YOUR_APP_ID}&app_code={YOUR_APP_CODE}");
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $pde = json_decode(curl_exec($ch), true);
             curl_close($ch);
